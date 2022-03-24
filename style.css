@@ -1,0 +1,24 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.title{
+  
+    background-color:#abd699;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    color: white;
+    
+}
+.sidebar{
+    background-color: #c7ddcc;
+    color: #16123f;
+    display:flex;
+    flex-direction: column;
+    margin-right: 90vw;
+    padding-bottom: 60rem;
+    
+}
