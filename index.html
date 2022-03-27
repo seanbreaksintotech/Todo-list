@@ -7,6 +7,9 @@
     <title>Todo</title>
     <link rel ="stylesheet" href ="/style.css">
     <script src = "./src/app.js " defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1 class= "title"> Todo List  
@@ -30,24 +33,39 @@
         <div class= "generalbox">
 
             
-            <p> heyyy </p>
             
             <button class="open-button" onclick="openForm()"><ion-icon name="add-circle-outline"></ion-icon> 
                 Add Todo</button>
 
             <div id="form-popup" >
               <form action="/action_page.php" class="form-container">
-                <h1>Login</h1>
+                <h1 class="h1pop">Add Todo</h1>
             
-                <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required>
+               
+                <input type="text" placeholder="Enter Title" name="email" required>
             
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-            
-                <button type="submit" class="btn">Login</button>
+                <textarea class = "textarea" placeholder ="Enter Description..."></textarea>
+                <div class ="date">
+                    <label for="birthday">Due Date:</label>
+                    <input type="date" id="birthday" name="dueDate">
+                </div>
+               
+                
+                    <div class=priority> </div>
+                <input type="checkbox" id="priority1" name="check" value="low" onclick="onlyOne(this)">
+                <label for="priority1"> Low </label>
+                <input type="checkbox" id="priority2" name="check" value="medium" onclick="onlyOne(this)">
+                <label for="priority2"> Medium</label>
+                <input type="checkbox" id="priority3" name="check" value="high" onclick="onlyOne(this)">
+                <label for="priority3"> High</label>
+                
+
+                <button type="submit" class="btn">Add</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-              </form>
+              
+            
+            </form>
+
             </div>
         <div id= "overlay"></div>
            

@@ -29,7 +29,16 @@ tabs[0].click();
 
 
 
+//function to only select one priority in form popup
+function onlyOne(checkbox) {
+    var checkboxes = document.getElementsByName('check')
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
 
+
+//to open and close form popup
 function openForm() {
     document.getElementById("form-popup").style.display = "block";
     overlay.classList.add("active");
