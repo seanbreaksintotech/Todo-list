@@ -6,23 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo</title>
     <link rel ="stylesheet" href ="/style.css">
-    <script src = "./src/app.js "></script>
+    <script src = "./src/app.js " defer></script>
 </head>
 <body>
     <h1 class= "title"> Todo List  
         <ion-icon name="calendar-number-outline"></ion-icon></h1>
 
+      
+<section>
+<ul class = "sidetabs">
 
-<div class = "sidebar">
+<li > <ion-icon name="file-tray-full-outline"></ion-icon> General</li>
 
-    <div class = "tabs"> General</div>
-    <div class = "sideh1"> Projects
+<li><ion-icon name="hammer-outline"></ion-icon> Projects</li>
 
-        <div> <button type="button">Add Project <ion-icon name="add-circle-outline"></ion-icon></button> </div>
+
+</ul>
+
+<div class="container">
+
+    <div class="content">
+
+        <div class= "generalbox">
+
+            
+            <p> heyyy </p>
+            
+            <button class="open-button" onclick="openForm()"><ion-icon name="add-circle-outline"></ion-icon> 
+                Add Todo</button>
+
+            <div id="form-popup" >
+              <form action="/action_page.php" class="form-container">
+                <h1>Login</h1>
+            
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+            
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+            
+                <button type="submit" class="btn">Login</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+              </form>
+            </div>
+        <div id= "overlay"></div>
+           
+
+
+        </div>
+        
+        
+       
+
     </div>
 
-    
+    <div class="content">
+        <div class= "generalbox2">
+            <p> heyyy </p>
+
+            <!-- <button> <ion-icon name="add-circle-outline"></ion-icon> ADD TODO</button> -->
+
+
+        </div>
+
+        
+   
+       </div>
+
+       
 </div>
+
+</section>
+
 </body>
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
