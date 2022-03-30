@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
     <h1 class= "title"> Todo List  
@@ -30,35 +32,48 @@
 
     <div class="content">
 
-        <div class= "generalbox">
+        <div id= "generalbox">
+
+            
+            <div class = "buttonbox">
+                <button class="open-button" onclick="openForm()"><ion-icon name="add-circle-outline"></ion-icon> 
+                    Add Todo</button>
+            </div>
+
+
+
 
             
             
-            <button class="open-button" onclick="openForm()"><ion-icon name="add-circle-outline"></ion-icon> 
-                Add Todo</button>
 
+
+
+            
             <div id="form-popup" >
-              <form action="/action_page.php" class="form-container">
+              <form class="form-container">
                 <h1 class="h1pop">Add Todo</h1>
             
                
-                <input type="text" placeholder="Enter Title" name="email" required>
+                <input id ="title" type="text" placeholder="Enter Title" name="email" required>
             
-                <textarea class = "textarea" placeholder ="Enter Description..."></textarea>
+                <textarea id = "textarea"class = "textarea" placeholder ="Enter Description..."></textarea>
                 <div class ="date">
                     <label for="birthday">Due Date:</label>
-                    <input type="date" id="birthday" name="dueDate">
+                    <input type="date" id="day" name="dueDate">
                 </div>
                
                 
-                    <div class=priority> </div>
-                <input type="checkbox" id="priority1" name="check" value="low" onclick="onlyOne(this)">
-                <label for="priority1"> Low </label>
-                <input type="checkbox" id="priority2" name="check" value="medium" onclick="onlyOne(this)">
-                <label for="priority2"> Medium</label>
-                <input type="checkbox" id="priority3" name="check" value="high" onclick="onlyOne(this)">
-                <label for="priority3"> High</label>
-                
+                    <div  class=priority> 
+
+                        <input type="checkbox" id="priority1" name="check" value="low" onclick="onlyOne(this)">
+                        <label class ="low" for="priority1"> Low </label>
+                        <input type="checkbox" id="priority2" name="check" value="medium" onclick="onlyOne(this)">
+                        <label class ="medium" for="priority2"> Medium</label>
+                        <input type="checkbox" id="priority3" name="check" value="high" onclick="onlyOne(this)">
+                        <label class ="high" for="priority3"> High</label>
+                        
+                    </div>
+              
 
                 <button type="submit" class="btn">Add</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
@@ -79,10 +94,10 @@
     </div>
 
     <div class="content">
-        <div class= "generalbox2">
+        <div id= "generalbox2">
             <p> heyyy </p>
 
-            <!-- <button> <ion-icon name="add-circle-outline"></ion-icon> ADD TODO</button> -->
+           
 
 
         </div>

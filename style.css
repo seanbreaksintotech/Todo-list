@@ -96,13 +96,13 @@ section{
         opacity: 1;
     }
 }
-.generalbox{
+#generalbox{
     margin-top: 10vh;
     background-color: #F3F3F3;
     padding-bottom: 50vh;
     box-shadow: 0 0 10px 4px rgba(0, 4, 15, 0.418);
 }
-.generalbox2{
+#generalbox2{
     margin-top: 10vh;
     background-color:#004E7C;
     padding-bottom: 50vh;
@@ -110,17 +110,28 @@ section{
     
 }
 
+.buttonbox{
+display: flex;
+justify-content: center;
+align-content: center;
+padding: 1rem;
+}
 
 .open-button {
-    background-color: #555;
+
+    background-color: #0072b4;
     color: white;
     padding: 16px 20px;
     border: none;
     cursor: pointer;
     opacity: 0.8;
+  display: flex;
 
-}.open-button:hover{
-    animation: rotate 0.7s  ease-in-out both
+}
+
+.open-button:hover{
+   background-color: #019af3;
+   animation: rotate 0.7s  ease-in-out both;
 }
   
   #form-popup {
@@ -258,4 +269,70 @@ section{
     margin-top:1rem;
     margin-bottom: 1rem;
 }
+  .priority {
+margin-top: .5rem;
+    margin-bottom: 2rem;
+    background-color: #666666;
+    padding: 1rem;
+  }
+  .low{
+    color: rgb(9, 211, 9);
+   
+  }
+  .medium{
+
+    color:yellow;
+    
+
+  }
+  .high{
+    color: rgb(255, 0, 0);
+  }
+  #todolist{
+    
+    background-color: #004E7C;
+    display: flex;
+    justify-content: space-between;
+    
+    box-shadow: 0 0 3px 1px rgba(0, 4, 15, 0.418);
+    padding: 1rem;
+    margin: 2rem;
+   
+
+  }
+
+
+  #todolist:hover{
+    background-color: #008ddf;
+    
+  }
+  .todotitle{
+   
+    color: white;
   
+    
+    
+  }
+  .todobtn{
+    background-color: #0072b4;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    
+  }
+#todos{
+  
+  float:right;
+}
+.todobtn:hover{
+  background-color: #00a2ff;
+}
+
+#todolist p{
+display: flex;
+  font-size: 20px;
+  align-items: center;
+  
+}
