@@ -46,86 +46,63 @@ function addTodoToList(todo){
     task.innerHTML = `
     
     <div id = "todolist">
+    <a href="#"><span class="tooltip"></span></a>
+    <span class="tooltip">   <h1> Details </h1>
+        <p> ${todo.description}</p>
+        <p>  </p>
+    </span>
+
     <p class = "todotitle">${todo.title}</p>
 
 
   <div id= "todos">
  
-        <button class="detailbtn"><ion-icon name="ellipsis-horizontal"></ion-icon></button>
+    <p> ${todo.dates}</p>
    <button id = "todobtn" class="todobtn"><ion-icon name="trash-outline"></ion-icon></button>
     
   </div>
 
+    </div>
+
+
 </div>
- `
-tasklist.appendChild(task)
+
+</div> 
+
+    `
+    tasklist.appendChild(task)
 
 
 
-//remove task from todolist
+    //remove task from todolist
 
-function deleteTodo(div){
+    function deleteTodo(div){
     if(div.classList.contains("todobtn")){
 
         div.parentElement.parentElement.remove()
+       
+        
     }
-}
+    }
 
-tasklist.addEventListener('click', (e) =>{
+    tasklist.addEventListener('click', (e) =>{
 
     deleteTodo(e.target)
-})
+    })
 
 
-//view details of task 
-function viewDetail(div){
-
-    const modal = document.getElementById("myModal");
-    const details = document.createElement('div')
-
-
-    if(div.classList.contains("detailbtn")){
-        modal.style.display = "block"
-        
-}
-
-details.innerHTML= `
-<div class = "modalcontents">
-<p>Description:</p>
-<p>Due Date:</p>
-<p> Priority:</p>
-
-</div> `
-
-modal.appendChild(details)
-
-
-}
-
-tasklist.addEventListener('click', (e) =>{
-    viewDetail(e.target)
-})
+    //view details of task 
+   
 }
 
 // to see details of todo
 
 
 
-const modal = document.getElementById("myModal");
-const span = document.getElementsByClassName("close")[0];
-span.onclick = function() {
-  modal.style.display = "none";
-}
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
 
 
 
-
-popup.addEventListener('submit', (e) =>{
+    popup.addEventListener('submit', (e) =>{
     e.preventDefault();
     const title = document.querySelector("#title").value
     const description = document.querySelector('#textarea').value
@@ -143,7 +120,7 @@ clear();
 function clear(){
     const title = document.querySelector("#title").value = " ";
     const description = document.querySelector('#textarea').value = " ";
-    const dates = document.querySelector('#day').value = " ";
+    
   
 }
 
