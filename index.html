@@ -49,18 +49,18 @@
             
                 <textarea id = "textarea"class = "textarea" placeholder ="Enter Description..."></textarea>
                 <div class ="date">
-                    <label for="birthday">Due Date:</label>
+                    <label for="date">Due Date:</label>
                     <input type="date" id="day" name="dueDate">
                 </div>
                
                 
                     <div  class=priority> 
 
-                        <input type="checkbox" id="priority1" name="check" value="low" onclick="onlyOne(this)">
+                        <input class = "messageCheckbox" type="checkbox" id="priority1" name="check" value="low" onclick="onlyOne(this)">
                         <label class ="low" for="priority1"> Low </label>
-                        <input type="checkbox" id="priority2" name="check" value="medium" onclick="onlyOne(this)">
+                        <input class = "messageCheckbox" type="checkbox" id="priority2" name="check" value="medium" onclick="onlyOne(this)">
                         <label class ="medium" for="priority2"> Medium</label>
-                        <input type="checkbox" id="priority3" name="check" value="high" onclick="onlyOne(this)">
+                        <input class = "messageCheckbox" type="checkbox" id="priority3" name="check" value="high" onclick="onlyOne(this)">
                         <label class ="high" for="priority3"> High</label>
                         
                     </div>
@@ -91,18 +91,44 @@
 
     <div class="content">
         <div id= "generalbox2">
-            <p> heyyy </p>
+            
+            <div class = "buttonbox2">
+                <button class="open-button2" onclick="openTheForm() "><ion-icon class = " icon" name="add-circle-outline"></ion-icon> 
+                    </button>
 
-           
+                    
+          
+                </div>
+              
+            </div>
 
-
-        </div>
-
-        
-   
-       </div>
-
-       
+            
+         <div class="loginPopup">
+            <div class="formPopup" id="popupForm">
+              <form  class="formContainer">
+                <h2>Projects</h2>
+                <label for="projectTitle">
+                
+                </label>
+                <input  id="projectTitle" type="text"placeholder="Project Title" name="email" required>
+                <label class =" h3todo">
+                  <strong>Todo's</strong>
+                </label>
+                <input type="text" id="todo1" placeholder="Title" name="psw" >
+                <input type="text" id="todo2" placeholder="Title" name="psw" >
+                <input type="text" id="todo3" placeholder="Title" name="psw" >
+                <input type="text" id="todo4" placeholder="Title" name="psw" >
+                <div class ="projectdate">
+                    <label for="date">Due Date:</label>
+                    <input type="date" id="day" name="dueDate">
+                </div>
+                <button type="submit" class="btn">Add</button>
+                
+                <button type="button" class="btn cancel" onclick="closeTheForm()">Close</button>
+              </form>
+            </div>
+            <div id= "overlay2"></div>
+     
 </div>
 
 </section>

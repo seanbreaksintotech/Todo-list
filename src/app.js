@@ -2,7 +2,7 @@ const tabs = document.querySelectorAll(".sidetabs li");
 const contents = document.querySelectorAll(".content");
 const overlay = document.getElementById('overlay');
 const popup = document.getElementById('form-popup');
-
+const popupProject = document.getElementById('popupForm')
 
 //function to switch between active tabs
 tabs.forEach((tab, index) =>{
@@ -22,6 +22,9 @@ tabs.forEach((tab, index) =>{
     
 })
 
+
+
+
 //todo class
 
 class todoList{
@@ -33,7 +36,21 @@ class todoList{
     }
     
 
+} 
+
+class projectList{
+    constructor(projectTitle){
+        this.projectTitle = projectTitle
+        
+    }
+
+   
 }
+
+ 
+
+
+
 
 //function to add todo to list
 
@@ -49,13 +66,13 @@ function addTodoToList(todo){
     <a href="#"><span class="tooltip"></span></a>
     <span class="tooltip">   <h1> Details </h1>
         <p> ${todo.description}</p>
-        <p>  </p>
+        <p> Priority:${todo.priority} </p>
     </span>
 
     <p class = "todotitle">${todo.title}</p>
 
 
-  <div id= "todos">
+  <div id= "todos1">
  
     <p> ${todo.dates}</p>
    <button id = "todobtn" class="todobtn"><ion-icon name="trash-outline"></ion-icon></button>
@@ -72,16 +89,15 @@ function addTodoToList(todo){
     `
     tasklist.appendChild(task)
 
-
-
+   
+  
+    
     //remove task from todolist
 
     function deleteTodo(div){
     if(div.classList.contains("todobtn")){
 
         div.parentElement.parentElement.remove()
-       
-        
     }
     }
 
@@ -89,31 +105,60 @@ function addTodoToList(todo){
 
     deleteTodo(e.target)
     })
-
-
-    //view details of task 
    
 }
 
-// to see details of todo
+// add to projectlist
 
+function addProject(project){
 
+    const projectList = document.querySelector('#generalbox2')
+    const projectTask = document.createElement('div')
 
+    projectTask.innerHTML = `
+    <div class ="projectContainer">
+         <div class="projects">
+                        <h1>${project.projectTitle}</h1>
+                        <div>
 
+                            <button id = "projectbtn" class="projectbtn"><ion-icon name="trash-outline"></ion-icon></button>
+                        </div> 
+                    </div>
+                </div>         `
 
+    projectList.appendChild(projectTask)
 
+    function deleteProject(div){
+        if(div.classList.contains("projectbtn")){
+    
+            div.parentElement.parentElement.remove()
+        }
+        }
+    
+        projectList.addEventListener('click', (e) =>{
+    
+       deleteProject(e.target)
+        })
+}
+
+// general form submit 
     popup.addEventListener('submit', (e) =>{
     e.preventDefault();
     const title = document.querySelector("#title").value
     const description = document.querySelector('#textarea').value
     const dates = document.querySelector('#day').value
-  
+    const priority = document.querySelector('.messageCheckbox:checked').value;
 
 
-    const todo = new todoList(title,description,dates)
+    const todo = new todoList(title,description,dates,priority)
+    
     addTodoToList(todo);
-closeForm();
-clear();
+    
+
+   
+   
+    closeForm();
+    clear();
 
 })
 
@@ -123,6 +168,24 @@ function clear(){
     
   
 }
+
+//Project form submit
+popupProject.addEventListener('submit', (e) =>{
+    e.preventDefault();
+    const projectTitle = document.querySelector('#projectTitle').value
+    const todoOne = document.querySelector('#todo1').value
+    const todoTwo= document.querySelector('#todo2').value
+    const todoThree = document.querySelector('#todo3').value
+    const todoFour = document.querySelector('#todo4').value
+   
+
+
+    const project = new projectList(projectTitle,todoOne,todoTwo,todoThree,todoFour)
+
+    addProject(project);
+    closeTheForm()
+})
+
 
 //tab display on refresh
 tabs[0].click();
@@ -153,14 +216,46 @@ function openForm() {
     overlay.classList.remove("active")
   }
 
+  function openTheForm() {
+    document.getElementById("popupForm").style.display = "block";
+    overlay2.classList.add("active")
+}
+  
+  function closeTheForm() {
+    document.getElementById("popupForm").style.display = "none";
+    overlay2.classList.remove("active")
+}
 
+//local storage
 
+// class Store{
+//     static getTodo(){
+//         let todos;
+//         if(localStorage.getItem('todos')=== null){
+//             todos =[];
+//         }else{
+//             todos = JSON.parse(localStorage.getItem('todos'));
+//         }
+//         return todos;
 
+//     }
 
+//     static addTodo(todo){
+//         const todos = Store.getTodo();
 
+//         todos.push(todo);
+//         localStorage.setItem('todos',JSON.stringify(todos));
 
+//     }
+//    static removeTodo(title){
+//        const todos = Store.getTodo()
 
-
-
-
+//        todos.forEach((todo,index) =>{
+//            if(todo.title === title){
+//             todos.splice(index, 1);
+//            }
+//        });
+//        localStorage.setItem('todos', JSON.stringify(todos))
+//    }
+// }
 

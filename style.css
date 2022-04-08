@@ -315,7 +315,7 @@ margin-top: .5rem;
     
     
   }
-  .todobtn{
+  .todobtn, .projectbtn{
     background-color: #0072b4;
     color: white;
     padding: 16px 20px;
@@ -324,7 +324,7 @@ margin-top: .5rem;
     opacity: 0.8;
     
   }
-#todos{
+#todos1{
   display: flex;
   float:right;
 }
@@ -332,7 +332,10 @@ margin-top: .5rem;
   background-color: #00a2ff;
   
 }
-
+.projectbtn:hover{
+  background-color: #00a2ff;
+  
+}
 #todolist p{
 display: flex;
   font-size: 25px;
@@ -341,7 +344,7 @@ display: flex;
   
 }
 
-#todos p{
+#todos1 p{
 
   padding: 1rem;
   color: rgb(167, 167, 167);
@@ -375,3 +378,142 @@ display: flex;
     padding-bottom: 5px;
    
   }
+
+  #todolist span p{
+    padding: 8px;
+  }
+  .open-button2{
+    background-color: #dddddd;
+    color: #0072b4;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+  
+  display: flex;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+
+  }
+  .buttonbox2{
+    display: flex;
+justify-content: center;
+align-content: center;
+padding: 1rem;
+  }
+  .open-button2:hover{
+    background-color: #ffffff;
+    animation: rotate 0.7s  ease-in-out both;
+ }
+
+.icon{
+  font-size: 3rem;
+}
+
+.openBtn {
+  display: flex;
+  justify-content: left;
+}
+.openButton {
+  border: none;
+  border-radius: 5px;
+  background-color: #1c87c9;
+  color: white;
+  padding: 14px 20px;
+  cursor: pointer;
+  position: fixed;
+}
+.loginPopup {
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+.formPopup {
+  display: none;
+  transform: translate(-50%,-50%) scale(0);
+  transition: 250ms ease-in-out;
+  position: fixed;
+ top: 50%;
+ left:50%;
+ transform:translate(-50%,-50%);
+  
+  z-index: 10;
+  background-color: #004E7C;
+}
+.formContainer {
+  max-width: 300px;
+  padding: 20px;
+  background-color: #004E7C;
+}
+.formContainer input[type=text],
+.formContainer input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 20px 0;
+  border: none;
+  background: #eee;
+}
+.formContainer input[type=text]:focus,
+.formContainer input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+.formContainer .btn {
+  padding: 12px 20px;
+  border: none;
+  background-color: white;
+  color: #004E7C;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 15px;
+  opacity: 0.8;
+}
+.formContainer .cancel {
+  background-color: #cc0000;
+}
+.formContainer .btn:hover,
+.openButton:hover {
+  opacity: 1;
+}
+
+#overlay2{
+  position: fixed;
+  transition: 250ms ease-in-out;
+  opacity: 0;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  background-color: rgba(0,0,0,.5);
+  pointer-events: none;
+}
+
+
+#overlay2.active{
+  opacity: 1;
+  pointer-events: all;
+
+}
+.formContainer, .h3todo h2{
+  color: white;
+}
+.projects{
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 3px 1px rgba(0, 4, 15, 0.418);
+  padding: 1rem;
+  margin: 2rem;
+  height: 25vh;
+  width: 25vh;
+
+}
+
+.projectContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+
