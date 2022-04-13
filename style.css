@@ -498,9 +498,10 @@ padding: 1rem;
   color: white;
 }
 .projects{
-  background-color: #ffffff;
   display: flex;
-  justify-content: space-between;
+  background-color: #ffffff;
+ flex-direction: column;
+
   box-shadow: 0 0 3px 1px rgba(0, 4, 15, 0.418);
   padding: 1rem;
   margin: 2rem;
@@ -517,3 +518,19 @@ padding: 1rem;
 }
 
 
+.projects{
+  display: flex;
+}
+
+.deleteproj{
+  padding-top: 3rem;
+}
+
+.projectp p{
+  padding: 3px;
+  padding-bottom: 0;
+
+}
+.h1proj{
+  padding-bottom: 1rem;
+}

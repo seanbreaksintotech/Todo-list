@@ -39,9 +39,14 @@ class todoList{
 } 
 
 class projectList{
-    constructor(projectTitle){
-        this.projectTitle = projectTitle
-        
+    constructor(projectTitle,todoOne,todoTwo,todoThree,todoFour,projectDate){
+        this.projectTitle = projectTitle,
+        this.todoOne = todoOne,
+        this.todoTwo = todoTwo,
+        this.todoThree = todoThree,
+        this.todoFour = todoFour,
+        this.projectDate = projectDate
+       
     }
 
    
@@ -88,7 +93,7 @@ function addTodoToList(todo){
 
     `
     tasklist.appendChild(task)
-
+    
    
   
     
@@ -105,6 +110,9 @@ function addTodoToList(todo){
 
     deleteTodo(e.target)
     })
+
+    Store.addTodo()
+    Store.getTodo(todo)
    
 }
 
@@ -115,16 +123,34 @@ function addProject(project){
     const projectList = document.querySelector('#generalbox2')
     const projectTask = document.createElement('div')
 
-    projectTask.innerHTML = `
+    projectTask.innerHTML = ` 
     <div class ="projectContainer">
-         <div class="projects">
-                        <h1>${project.projectTitle}</h1>
-                        <div>
+        <div class="projects"> 
+            <div class = "h1proj"><h1>${project.projectTitle}</h1></div>
+                       
 
-                            <button id = "projectbtn" class="projectbtn"><ion-icon name="trash-outline"></ion-icon></button>
-                        </div> 
-                    </div>
-                </div>         `
+            <div class = "projectp"> 
+            
+            <p> ${project.todoOne} </p>
+            <p>${project.todoTwo}</p>
+            <p>${project.todoThree} </p>
+            <p> ${project.todoFour}</p>
+            <div>
+            <p> ${project.projectDate} </p>
+            </div>
+            </div> 
+            <div class = "deleteproj"><button id = "projectbtn" class="projectbtn"><ion-icon name="trash-outline"></ion-icon></button></div>
+            
+
+        </div>
+               
+                       
+                   </div>
+                  
+               </div>     
+
+
+        `
 
     projectList.appendChild(projectTask)
 
@@ -154,6 +180,7 @@ function addProject(project){
     
     addTodoToList(todo);
     
+    
 
    
    
@@ -177,10 +204,11 @@ popupProject.addEventListener('submit', (e) =>{
     const todoTwo= document.querySelector('#todo2').value
     const todoThree = document.querySelector('#todo3').value
     const todoFour = document.querySelector('#todo4').value
+    const projectDate = document.querySelector('#days').value
    
 
 
-    const project = new projectList(projectTitle,todoOne,todoTwo,todoThree,todoFour)
+    const project = new projectList(projectTitle,todoOne,todoTwo,todoThree,todoFour, projectDate)
 
     addProject(project);
     closeTheForm()
@@ -228,34 +256,34 @@ function openForm() {
 
 //local storage
 
-// class Store{
-//     static getTodo(){
-//         let todos;
-//         if(localStorage.getItem('todos')=== null){
-//             todos =[];
-//         }else{
-//             todos = JSON.parse(localStorage.getItem('todos'));
-//         }
-//         return todos;
+class Store{
+    static getTodo(){
+        let todos;
+        if(localStorage.getItem('todos')=== null){
+            todos =[];
+        }else{
+            todos = JSON.parse(localStorage.getItem('todos'));
+        }
+        return todos;
 
-//     }
+    }
 
-//     static addTodo(todo){
-//         const todos = Store.getTodo();
+    static addTodo(todo){
+        const todos = Store.getTodo();
 
-//         todos.push(todo);
-//         localStorage.setItem('todos',JSON.stringify(todos));
+        todos.push(todo);
+        localStorage.setItem('todos',JSON.stringify(todos));
 
-//     }
-//    static removeTodo(title){
-//        const todos = Store.getTodo()
+    }
+   static removeTodo(title){
+       const todos = Store.getTodo()
 
-//        todos.forEach((todo,index) =>{
-//            if(todo.title === title){
-//             todos.splice(index, 1);
-//            }
-//        });
-//        localStorage.setItem('todos', JSON.stringify(todos))
-//    }
-// }
+       todos.forEach((todo,index) =>{
+           if(todo.title === title){
+            todos.splice(index, 1);
+           }
+       });
+       localStorage.setItem('todos', JSON.stringify(todos))
+   }
+}
 
